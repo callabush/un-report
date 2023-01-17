@@ -1,2 +1,3 @@
 We sorted data by stuff
 Countries in data 
+Countries have colors
