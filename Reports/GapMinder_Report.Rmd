@@ -19,7 +19,7 @@ library(tidyverse)
 ```{r data}
 gapminder_1997 <- read_csv("un-report/data/gapminder_1997.csv")
 ```
-```{r GDP-lifeExp-1997-plot}
+```{r GDP-lifeExp-1997-plot, echo = FALSE, fig.width=4, fig.height=3,    fig.align='center'}
 #Make plot of gdp(x-axis) vs LifeExp (y-axis)
 ggplot(gapminder_1997, aes(x=gdpPercap, y=lifeExp)) +
   geom_point() +
@@ -30,5 +30,23 @@ ggplot(gapminder_1997, aes(x=gdpPercap, y=lifeExp)) +
 
 ```
 
+```{r basic-country-stats}
+#Number of countries in the dataset
+  gapminder_1997 %>%
+  select(country)%>%
+  n_distinct()
 
+#minimum GDP
+minGDP <- gapminder_1997 %>%
+  summarize(round(min(gdpPercap))) %>%
+  pull()
 
+#maximum GDP
+minGDP <- gapminder_1997 %>%
+  summarize(round(max(gdpPercap))) %>%
+  pull()
+```
+
+The number of countries in the dataset is `nCountries`.
+The minimum GDP is `minGDP`.
+The maximum GDP is `maxGDP`.
