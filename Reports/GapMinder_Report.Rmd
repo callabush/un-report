@@ -1,0 +1,32 @@
+---
+title: "Relationship between GDP, Life Expectancy, and CO2 Emissions"
+author: "Calla Bush St George"
+date: "2023-01-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages}
+library(tidyverse)
+```
+
+
+```{r data}
+gapminder_1997 <- read_csv("un-report/data/gapminder_1997.csv")
+```
+```{r GDP-lifeExp-1997-plot}
+#Make plot of gdp(x-axis) vs LifeExp (y-axis)
+ggplot(gapminder_1997, aes(x=gdpPercap, y=lifeExp)) +
+  geom_point() +
+      labs(x="GDP",
+           y="Life Expectanct",
+           title="There is a strong association between a nation's GDP and Life Expectancy"
+      ) 
+
+```
+
+
+
